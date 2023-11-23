@@ -2,14 +2,18 @@ export interface People {
   count: number;
   next: string;
   previous: null;
-  results: Person[];
+  results: PersonI[];
 }
 
 export interface PeopleData {
   people: People;
 }
 
-export interface Person {
+export interface PersonData {
+  person: PersonI;
+}
+
+export interface PersonI {
   name: string;
   height: string;
   mass: string;

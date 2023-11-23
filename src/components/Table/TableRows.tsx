@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { ColumnDefinitionType } from "./Table";
+import { useNavigate } from "react-router-dom";
 
 type TableRowsProps<T, K extends keyof T> = {
   data: Array<T>;
@@ -10,16 +11,38 @@ const style = {
   border: "1px solid black",
 };
 
-const TableRows = <T, K extends keyof T>({
+const TableRows = <T extends { url: string }, K extends keyof T>({
   data,
   columns,
 }: TableRowsProps<T, K>): JSX.Element => {
+  const navigate = useNavigate();
+
+  const handleRowClick = (e: React.MouseEvent, url: string) => {
+    const subUrl = url.split("/api/")[1];
+    console.log(subUrl);
+    navigate(`/${subUrl}`);
+    e.stopPropagation();
+  };
+
   const rows = data.map((row, index) => {
     return (
-      <tr key={`row-${index}`}>
+      <tr
+        key={`row-${index}`}
+        onClick={(e) => handleRowClick(e, row.url)}
+        className="cursor-pointer"
+      >
         {columns.map((column, index2) => {
           return (
-            <td key={`cell-${index2}`} style={style}>
+            <td
+              key={`cell-${index2}`}
+              style={style}
+              className=""
+              onClick={(e) =>
+                column.isLink
+                  ? handleRowClick(e, row[column.key] as string)
+                  : null
+              }
+            >
               {row[column.key] as ReactNode}
             </td>
           );

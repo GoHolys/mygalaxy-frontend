@@ -2,10 +2,18 @@ export interface Planets {
   count: number;
   next: string;
   previous: null;
-  results: Result[];
+  results: PlanetI[];
 }
 
-export interface Result {
+export interface PlanetsData {
+  planets: Planets;
+}
+
+export interface PlanetData {
+  planet: PlanetI;
+}
+
+export interface PlanetI {
   name: string;
   rotation_period: string;
   orbital_period: string;

@@ -5,11 +5,12 @@ export type ColumnDefinitionType<T, K extends keyof T> = {
   key: K;
   header: string;
   width?: number;
+  isLink?: boolean;
 };
 
 type TableProps<T, K extends keyof T> = {
-  data: Array<T>;
-  columns: Array<ColumnDefinitionType<T, K>>;
+  data: Array<T & { url: string }>;
+  columns: Array<ColumnDefinitionType<T & { url: string }, K>>;
 };
 
 const Table = <T, K extends keyof T>({
@@ -17,7 +18,7 @@ const Table = <T, K extends keyof T>({
   columns,
 }: TableProps<T, K>): JSX.Element => {
   return (
-    <table>
+    <table className=" [&>tbody>*:nth-child(odd)]:bg-[#eeeeee]">
       <TableHeader columns={columns} />
       <TableRows data={data} columns={columns} />
     </table>
