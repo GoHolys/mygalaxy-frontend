@@ -50,13 +50,19 @@ export default function Person() {
               <li>{film}</li>
             ))}
           </ul>
-          <li>Vehicles:</li>
-          <ul>
-            {vehicles.map((vehicle) => (
-              <li>{vehicle}</li>
-            ))}
-          </ul>
-          <li>Starships:</li>
+          <li>
+            Vehicles:
+            {vehicles.length
+              ? vehicles.map((vehicle) => <li>{vehicle}</li>)
+              : " none"}
+          </li>
+
+          <li>
+            Starships:
+            {starships.length
+              ? starships.map((vehicle) => <li>{vehicle}</li>)
+              : " none"}
+          </li>
           <ul>
             {starships.map((starship) => (
               <li>{starship}</li>

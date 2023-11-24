@@ -8,22 +8,24 @@ export default function People() {
   );
 
   const columns: ColumnDefinitionType<PersonI, keyof PersonI>[] = [
-    { key: "name", header: "Name", width: 150, isLink: false },
-    { key: "height", header: "Height", width: 150, isLink: false },
-    { key: "mass", header: "Mass", width: 150, isLink: false },
-    { key: "hair_color", header: "Hair Color", width: 150, isLink: false },
-    { key: "skin_color", header: "Skin Color", width: 150, isLink: false },
-    { key: "eye_color", header: "Eye Color", width: 150, isLink: false },
-    { key: "birth_year", header: "Birth Year", width: 150, isLink: false },
-    { key: "gender", header: "Gender", width: 150, isLink: false },
-    { key: "homeworld", header: "Homeworld", width: 150, isLink: true },
+    { key: "name", header: "Name", isLink: false },
+    { key: "height", header: "Height", isLink: false },
+    { key: "mass", header: "Mass", isLink: false },
+    { key: "hair_color", header: "Hair Color", isLink: false },
+    { key: "skin_color", header: "Skin Color", isLink: false },
+    { key: "eye_color", header: "Eye Color", isLink: false },
+    { key: "birth_year", header: "Birth Year", isLink: false },
+    { key: "gender", header: "Gender", isLink: false },
+    { key: "homeworld", header: "Homeworld", isLink: true },
   ];
 
   if (loading) return <h1>loading</h1>;
   if (error) return <h1>error</h1>;
 
   return (
-    <div className="">
+    <div
+      className="flex justify-center"
+    >
       <Table data={data!.people.results} columns={columns} />
     </div>
   );

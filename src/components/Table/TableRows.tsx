@@ -7,10 +7,6 @@ type TableRowsProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
 };
 
-const style = {
-  border: "1px solid black",
-};
-
 const TableRows = <T extends { url: string }, K extends keyof T>({
   data,
   columns,
@@ -29,14 +25,13 @@ const TableRows = <T extends { url: string }, K extends keyof T>({
       <tr
         key={`row-${index}`}
         onClick={(e) => handleRowClick(e, row.url)}
-        className="cursor-pointer"
+        className="cursor-pointer border-b-[#dddddd] border-2"
       >
         {columns.map((column, index2) => {
           return (
             <td
+              className="py-3 px-5"
               key={`cell-${index2}`}
-              style={style}
-              className=""
               onClick={(e) =>
                 column.isLink
                   ? handleRowClick(e, row[column.key] as string)

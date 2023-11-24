@@ -8,8 +8,8 @@ import Planet from "./pages/Planet";
 
 export default function App() {
   return (
-    <main className="h-screen w-screen">
-      <div className="mb-10">
+    <main className="h-screen">
+      <div className="mb-10 mt-6">
         <Navbar />
       </div>
       <Routes>

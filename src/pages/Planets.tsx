@@ -8,22 +8,22 @@ export default function Planets() {
   );
 
   const columns: ColumnDefinitionType<PlanetI, keyof PlanetI>[] = [
-    { key: "name", header: "Name", width: 150 },
-    { key: "rotation_period", header: "Rotation Period", width: 150 },
-    { key: "orbital_period", header: "Orbital Period", width: 150 },
-    { key: "diameter", header: "Diameter", width: 150 },
-    { key: "climate", header: "Climate", width: 150 },
-    { key: "gravity", header: "Gravity", width: 150 },
-    { key: "terrain", header: "Terrain", width: 150 },
-    { key: "surface_water", header: "Surface Water", width: 150 },
-    { key: "population", header: "Population", width: 150 },
+    { key: "name", header: "Name" },
+    { key: "rotation_period", header: "Rotation Period" },
+    { key: "orbital_period", header: "Orbital Period" },
+    { key: "diameter", header: "Diameter" },
+    { key: "climate", header: "Climate" },
+    { key: "gravity", header: "Gravity" },
+    { key: "terrain", header: "Terrain" },
+    { key: "surface_water", header: "Surface Water" },
+    { key: "population", header: "Population" },
   ];
 
   if (loading) return <h1>loading</h1>;
   if (error) return <h1>error</h1>;
 
   return (
-    <div className="">
+    <div className="flex justify-center">
       <Table data={data!.planets.results} columns={columns} />
     </div>
   );
