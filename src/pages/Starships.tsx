@@ -16,7 +16,6 @@ export default function Starships() {
     {
       key: "max_atmosphering_speed",
       header: "Max Atmosphering Speed",
-      width: 150,
     },
     { key: "crew", header: "Crew"},
     { key: "passengers", header: "Passengers"},
