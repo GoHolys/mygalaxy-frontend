@@ -1,10 +1,14 @@
+import { useState } from "react";
 import Table, { ColumnDefinitionType } from "../components/Table/Table";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PeopleData, PersonI } from "../interfaces/people";
+import PageNavigator from "../components/PageNavigator/PageNavigator";
+import { calculatePagesCount } from "../utils/pagination";
 
 export default function People() {
+  const [currPage, setCurrPage] = useState(1);
   const [data, error, loading] = useAxiosFetch<PeopleData>(
-    "http://localhost:8080/people/"
+    `http://localhost:8080/people/${currPage}`
   );
 
   const columns: ColumnDefinitionType<PersonI, keyof PersonI>[] = [
@@ -38,8 +42,15 @@ export default function People() {
   if (error) return <h1>error</h1>;
 
   return (
-    <div className="flex justify-center">
-      <Table data={data!.people.results} columns={columns} />
+    <div className="flex flex-col">
+      <div className="flex justify-center">
+        <Table data={data!.people.results} columns={columns} />
+      </div>
+      <PageNavigator
+        currPage={currPage}
+        totalPages={calculatePagesCount(10, data!.people.count)}
+        setCurrPage={setCurrPage}
+      />
     </div>
   );
 }
