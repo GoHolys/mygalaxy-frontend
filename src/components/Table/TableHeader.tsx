@@ -22,7 +22,7 @@ const TableHeader = <T, K extends keyof T>({
   });
 
   return (
-    <thead className="bg-[#0A0A0A] w-full text-white font-bold  rounded-tl-xl rounded-tr-3xl">
+    <thead className="bg-[#0A0A0A] w-full text-white font-bold">
       <tr>{headers}</tr>
     </thead>
   );
