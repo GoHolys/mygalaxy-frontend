@@ -43,14 +43,16 @@ export default function People() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-5">
         <Table data={data!.people.results} columns={columns} />
       </div>
-      <PageNavigator
-        currPage={currPage}
-        totalPages={calculatePagesCount(10, data!.people.count)}
-        setCurrPage={setCurrPage}
-      />
+      <div className="flex justify-center">
+        <PageNavigator
+          currPage={currPage}
+          totalPages={calculatePagesCount(10, data!.people.count)}
+          setCurrPage={setCurrPage}
+        />
+      </div>
     </div>
   );
 }
