@@ -6,7 +6,7 @@ export default function Person() {
   const { personId } = useParams();
 
   const [data, error, loading] = useAxiosFetch<PersonData>(
-    `http://localhost:8080/people/${personId}`
+    `http://localhost:8080/people/person/${personId}`
   );
 
   const {
