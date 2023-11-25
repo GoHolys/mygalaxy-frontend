@@ -2,10 +2,10 @@ import { useState } from "react";
 import PageNavigator from "../components/PageNavigator/PageNavigator";
 import StatusComponent from "../components/Status/StatusComponent";
 import Table from "../components/Table/Table";
-import { columns } from "../consts/TableColumns/People";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PeopleData } from "../interfaces/people";
 import { calculatePagesCount } from "../utils/pagination";
+import { columns } from "../consts/TableColumns/people";
 
 export default function People() {
   const [currPage, setCurrPage] = useState(1);

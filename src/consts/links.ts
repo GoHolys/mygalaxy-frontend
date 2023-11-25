@@ -1,7 +1,7 @@
 export const links = [
   {
     title: "people",
-    url: "/",
+    url: "/people",
     fetchUrl: "http://localhost:8080/people/",
   },
   {

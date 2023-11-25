@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import People from "./pages/People";
 import Planets from "./pages/Planets";
@@ -14,12 +14,13 @@ export default function App() {
         <Navbar />
       </div>
       <Routes>
-        <Route path="/" element={<People />} />
+        <Route path="/people" element={<People />} />
         <Route path="/planets" element={<Planets />} />
         <Route path="/starships" element={<Starships />} />
         <Route path="/people/:personId" element={<Person />} />
         <Route path="/planets/:planetId" element={<Planet />} />
         <Route path="/starships/:starshipId" element={<Starship />} />
+        <Route path="/" element={<Navigate to="/people" />} />
       </Routes>
     </main>
   );
