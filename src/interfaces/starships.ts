@@ -2,7 +2,7 @@ export interface Starships {
   count: number;
   next: string;
   previous: null;
-  results: Starship[];
+  results: StarshipI[];
 }
 
 export interface StarshipsData {
@@ -10,10 +10,11 @@ export interface StarshipsData {
 }
 
 export interface StarshipData {
-  starship: Starship;
+  starship: StarshipI;
 }
 
-export interface Starship {
+
+export interface StarshipI {
   name: string;
   model: string;
   manufacturer: string;

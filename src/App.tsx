@@ -5,6 +5,7 @@ import Planets from "./pages/Planets";
 import Starships from "./pages/Starships";
 import Person from "./pages/Person";
 import Planet from "./pages/Planet";
+import Starship from "./pages/Starship";
 
 export default function App() {
   return (
@@ -16,10 +17,9 @@ export default function App() {
         <Route path="/" element={<People />} />
         <Route path="/planets" element={<Planets />} />
         <Route path="/starships" element={<Starships />} />
-        <Route path="/planet/:planetId" element={<Planet />} />
         <Route path="/people/:personId" element={<Person />} />
         <Route path="/planets/:planetId" element={<Planet />} />
-        <Route path="/starships/:starshipId" element={<Starships />} />
+        <Route path="/starships/:starshipId" element={<Starship />} />
       </Routes>
     </main>
   );

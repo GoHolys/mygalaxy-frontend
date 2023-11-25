@@ -1,10 +1,14 @@
+import { useState } from "react";
+import PageNavigator from "../components/PageNavigator/PageNavigator";
 import Table, { ColumnDefinitionType } from "../components/Table/Table";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PlanetsData, PlanetI } from "../interfaces/planets";
+import { calculatePagesCount } from "../utils/pagination";
 
 export default function Planets() {
+  const [currPage, setCurrPage] = useState(1);
   const [data, error, loading] = useAxiosFetch<PlanetsData>(
-    "http://localhost:8080/planets/"
+    `http://localhost:8080/planets/${currPage}`
   );
 
   const columns: ColumnDefinitionType<PlanetI, keyof PlanetI>[] = [
@@ -23,8 +27,17 @@ export default function Planets() {
   if (error) return <h1>error</h1>;
 
   return (
-    <div className="flex justify-center">
-      <Table data={data!.planets.results} columns={columns} />
+    <div className="flex flex-col">
+      <div className="flex justify-center mb-5">
+        <Table data={data!.planets.results} columns={columns} />
+      </div>
+      <div className="flex justify-center">
+        <PageNavigator
+          currPage={currPage}
+          totalPages={calculatePagesCount(10, data!.planets.count)}
+          setCurrPage={setCurrPage}
+        />
+      </div>
     </div>
   );
 }

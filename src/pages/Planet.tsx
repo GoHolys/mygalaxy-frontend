@@ -6,7 +6,7 @@ export default function Planet() {
   const { planetId } = useParams();
 
   const [data, error, loading] = useAxiosFetch<PlanetData>(
-    `http://localhost:8080/planets/${planetId}`
+    `http://localhost:8080/planets/planet/${planetId}`
   );
 
   const {
