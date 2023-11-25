@@ -64,10 +64,12 @@ export default function Starship() {
               <li>{film}</li>
             ))}
           </ul>
-          <li>
+          <ul>
             Pilots:
-            {pilots.length ? pilots.map((pilot) => <li>{pilot}</li>) : " none"}
-          </li>
+            {pilots.length
+              ? pilots.map((pilot, index) => <li key={index}>{pilot}</li>)
+              : " none"}
+          </ul>
           <li>Created: {created?.toString().slice(0, 10)}</li>
           <li>Edited: {edited?.toString().slice(0, 10)}</li>
           <li>URL: {url}</li>

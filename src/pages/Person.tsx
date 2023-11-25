@@ -51,26 +51,28 @@ export default function Person() {
           <li>Homeworld: {homeworld}</li>
           <li>Films:</li>
           <ul>
-            {films.map((film) => (
-              <li>{film}</li>
+            {films.map((film, index) => (
+              <li key={index}>{film}</li>
             ))}
           </ul>
-          <li>
+          <ul>
             Vehicles:
             {vehicles.length
-              ? vehicles.map((vehicle) => <li>{vehicle}</li>)
+              ? vehicles.map((vehicle, index) => <li key={index}>{vehicle}</li>)
               : " none"}
-          </li>
+          </ul>
 
-          <li>
+          <ul>
             Starships:
             {starships.length
-              ? starships.map((vehicle) => <li>{vehicle}</li>)
+              ? starships.map((vehicle, index) => (
+                  <li key={index}>{vehicle}</li>
+                ))
               : " none"}
-          </li>
+          </ul>
           <ul>
-            {starships.map((starship) => (
-              <li>{starship}</li>
+            {starships.map((starship, index) => (
+              <li key={index}>{starship}</li>
             ))}
           </ul>
           <li>Created: {created?.toString().slice(0, 10)}</li>
