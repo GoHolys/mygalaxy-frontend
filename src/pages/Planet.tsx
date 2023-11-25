@@ -52,17 +52,13 @@ export default function Planet() {
           <li>Residents:</li>
           <ul>
             {residents?.map((resident, index) => (
-              <li key={index}>
-                <a href={resident}>{resident}</a>
-              </li>
+              <li key={index}>{resident}</li>
             ))}
           </ul>
           <li>Films:</li>
           <ul>
             {films?.map((film, index) => (
-              <li key={index}>
-                <a href={film}>{film}</a>
-              </li>
+              <li key={index}>{film}</li>
             ))}
           </ul>
           <li>Created: {created?.toString().slice(0, 10)}</li>
