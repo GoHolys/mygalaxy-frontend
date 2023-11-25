@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Star Wars API  is a comprehensive database of information about the Star Wars universe, including data on characters, planets, species, vehicles, and more. 
 
-Currently, two official plugins are available:
+This project is intended to render the data from SWAPI in a user-friendly way using React. The project will leverage the SWAPI data to create a web application that allows users to browse and search for information about the Star Wars universe.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Unzip the project file.
+2. Navigate to the project directory.
+3. Install dependencies with `npm install`.
+4. Start the development server with `npm run dev`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Usage
 
-- Configure the top-level `parserOptions` property like this:
+Instructions on how to use the project -
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. You'll start off in the main page which displays the People table. 
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. you'll be able to navigate and view the other tables by interacting with the top navbar. 
+
+Simply click on any of the buttons - People, Planets, Starships to navigate to the desired table.
+
+The button's color will be red according to the viewed table.
+
+3. pagination -  on the desired table's page simply scroll down and interact with the PageNavigator component to view the desired page.
+
+4. sorting - You'll be able to sort the desired table numerically or alphabetically by simply clicking on the desired table's column.
+Simply click on the desired column the view the table's data in an ascending or descending order.
+
+5. Access to entity's page - you'll be able to access to any of the entities pages. Simply navigate to the desired row in any of the tables and click on it - 
+You'll be navigated to the entity's detailed page.
+
+6. Access to the person's homeworld (Planet) - navigate to the people's page and click on any of the Homeworld's data cells to view the planet's detailed page.
+

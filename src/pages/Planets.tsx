@@ -1,28 +1,17 @@
 import { useState } from "react";
 import PageNavigator from "../components/PageNavigator/PageNavigator";
-import Table, { ColumnDefinitionType } from "../components/Table/Table";
-import { useAxiosFetch } from "../hooks/useFetch";
-import { PlanetsData, PlanetI } from "../interfaces/planets";
-import { calculatePagesCount } from "../utils/pagination";
 import StatusComponent from "../components/Status/StatusComponent";
+import Table from "../components/Table/Table";
+import { columns } from "../consts/TableColumns/planets";
+import { useAxiosFetch } from "../hooks/useFetch";
+import { PlanetsData } from "../interfaces/planets";
+import { calculatePagesCount } from "../utils/pagination";
 
 export default function Planets() {
   const [currPage, setCurrPage] = useState(1);
   const [data, error, loading] = useAxiosFetch<PlanetsData>(
     `http://localhost:8080/planets/${currPage}`
   );
-
-  const columns: ColumnDefinitionType<PlanetI, keyof PlanetI>[] = [
-    { key: "name", header: "Name" },
-    { key: "rotation_period", header: "Rotation Period" },
-    { key: "orbital_period", header: "Orbital Period" },
-    { key: "diameter", header: "Diameter" },
-    { key: "climate", header: "Climate" },
-    { key: "gravity", header: "Gravity" },
-    { key: "terrain", header: "Terrain" },
-    { key: "surface_water", header: "Surface Water" },
-    { key: "population", header: "Population" },
-  ];
 
   if (loading) {
     return <StatusComponent message="Loading..." />;
