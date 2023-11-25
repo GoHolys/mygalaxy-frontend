@@ -1,10 +1,7 @@
 import { useState } from "react";
 import TableHeader from "./TableHeader";
 import TableRows from "./TableRows";
-
-function parseStringOrNumber(str: string) {
-  return Number(str) || str;
-}
+import { sortData } from "../../utils/sortData";
 
 export type ColumnDefinitionType<T, K extends keyof T> = {
   key: K;
@@ -16,28 +13,6 @@ type TableProps<T, K extends keyof T> = {
   data: Array<T & { url: string }>;
   columns: Array<ColumnDefinitionType<T & { url: string }, K>>;
 };
-
-function sortData<T extends Record<string, string>>(
-  data: T[],
-  sortColumn: keyof T | null,
-  sortOrder: null | "asc" | "desc"
-) {
-  if (sortColumn) {
-    if (sortOrder === "asc") {
-      return data.sort((a, b) =>
-        parseStringOrNumber(a[sortColumn]) > parseStringOrNumber(b[sortColumn])
-          ? -1
-          : 1
-      );
-    }
-    return data.sort((a, b) =>
-      parseStringOrNumber(a[sortColumn]) > parseStringOrNumber(b[sortColumn])
-        ? 1
-        : -1
-    );
-  }
-  return data;
-}
 
 const Table = <T, K extends keyof T>({
   data,
