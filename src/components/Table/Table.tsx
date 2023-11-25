@@ -9,8 +9,6 @@ function parseStringOrNumber(str: string) {
 export type ColumnDefinitionType<T, K extends keyof T> = {
   key: K;
   header: string;
-  isLink?: boolean;
-  isSortable?: boolean;
 };
 
 type TableProps<T, K extends keyof T> = {

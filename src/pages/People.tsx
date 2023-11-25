@@ -13,30 +13,24 @@ export default function People() {
   );
 
   const columns: ColumnDefinitionType<PersonI, keyof PersonI>[] = [
-    { key: "name", header: "Name", isLink: false, isSortable: false },
-    { key: "height", header: "Height", isLink: false, isSortable: false },
-    { key: "mass", header: "Mass", isLink: false, isSortable: false },
+    { key: "name", header: "Name" },
+    { key: "height", header: "Height" },
+    { key: "mass", header: "Mass" },
     {
       key: "hair_color",
       header: "Hair Color",
-      isLink: false,
-      isSortable: false,
     },
     {
       key: "skin_color",
       header: "Skin Color",
-      isLink: false,
-      isSortable: false,
     },
-    { key: "eye_color", header: "Eye Color", isLink: false, isSortable: false },
+    { key: "eye_color", header: "Eye Color" },
     {
       key: "birth_year",
       header: "Birth Year",
-      isLink: false,
-      isSortable: false,
     },
-    { key: "gender", header: "Gender", isLink: false, isSortable: false },
-    { key: "homeworld", header: "Homeworld", isLink: true, isSortable: false },
+    { key: "gender", header: "Gender" },
+    { key: "homeworld", header: "Homeworld" },
   ];
 
   if (loading) {
