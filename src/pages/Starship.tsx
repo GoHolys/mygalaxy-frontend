@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { StarshipData, StarshipI } from "../interfaces/starships";
+import StatusComponent from "../components/Status/StatusComponent";
 
 export default function Starship() {
   const { starshipId } = useParams();
@@ -33,11 +34,11 @@ export default function Starship() {
   } = data || {};
 
   if (loading) {
-    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+    return <StatusComponent message="Loading..." />;
   }
 
   if (error) {
-    return <h1 className="text-center text-3xl font-bold">error</h1>;
+    return <StatusComponent message="Error" />;
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PersonData, PersonI } from "../interfaces/people";
+import StatusComponent from "../components/Status/StatusComponent";
 
 export default function Person() {
   const { personId } = useParams();
@@ -29,13 +30,12 @@ export default function Person() {
   } = data || {};
 
   if (loading) {
-    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+    return <StatusComponent message="Loading..." />;
   }
 
   if (error) {
-    return <h1 className="text-center text-3xl font-bold">error</h1>;
+    return <StatusComponent message="Error" />;
   }
-
   return (
     <div className="flex flex-col items-center justify-center">
       <div>

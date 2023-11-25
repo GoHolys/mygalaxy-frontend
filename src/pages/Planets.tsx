@@ -4,6 +4,7 @@ import Table, { ColumnDefinitionType } from "../components/Table/Table";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PlanetsData, PlanetI } from "../interfaces/planets";
 import { calculatePagesCount } from "../utils/pagination";
+import StatusComponent from "../components/Status/StatusComponent";
 
 export default function Planets() {
   const [currPage, setCurrPage] = useState(1);
@@ -24,11 +25,11 @@ export default function Planets() {
   ];
 
   if (loading) {
-    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+    return <StatusComponent message="Loading..." />;
   }
 
   if (error) {
-    return <h1 className="text-center text-3xl font-bold">error</h1>;
+    return <StatusComponent message="Error" />;
   }
 
   return (
@@ -36,7 +37,7 @@ export default function Planets() {
       <div className="flex justify-center mb-5">
         <Table data={data!.planets.results} columns={columns} />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-5">
         <PageNavigator
           currPage={currPage}
           totalPages={calculatePagesCount(10, data!.planets.count)}

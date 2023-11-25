@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAxiosFetch } from "../hooks/useFetch";
 import { PlanetI, PlanetData } from "../interfaces/planets";
+import StatusComponent from "../components/Status/StatusComponent";
 
 export default function Planet() {
   const { planetId } = useParams();
@@ -28,11 +29,11 @@ export default function Planet() {
   } = data || {};
 
   if (loading) {
-    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+    return <StatusComponent message="Loading..." />;
   }
 
   if (error) {
-    return <h1 className="text-center text-3xl font-bold">error</h1>;
+    return <StatusComponent message="Error" />;
   }
 
   return (

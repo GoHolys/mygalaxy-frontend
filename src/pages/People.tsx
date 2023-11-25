@@ -4,6 +4,7 @@ import { useAxiosFetch } from "../hooks/useFetch";
 import { PeopleData, PersonI } from "../interfaces/people";
 import PageNavigator from "../components/PageNavigator/PageNavigator";
 import { calculatePagesCount } from "../utils/pagination";
+import StatusComponent from "../components/Status/StatusComponent";
 
 export default function People() {
   const [currPage, setCurrPage] = useState(1);
@@ -39,11 +40,11 @@ export default function People() {
   ];
 
   if (loading) {
-    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+    return <StatusComponent message="Loading..." />;
   }
 
   if (error) {
-    return <h1 className="text-center text-3xl font-bold">error</h1>;
+    return <StatusComponent message="Error" />;
   }
 
   return (
@@ -51,7 +52,7 @@ export default function People() {
       <div className="flex justify-center mb-5">
         <Table data={data!.people.results} columns={columns} />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-5">
         <PageNavigator
           currPage={currPage}
           totalPages={calculatePagesCount(10, data!.people.count)}
