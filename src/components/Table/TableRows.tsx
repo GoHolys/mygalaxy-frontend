@@ -15,7 +15,6 @@ const TableRows = <T extends { url: string }, K extends keyof T>({
 
   const handleRowClick = (e: React.MouseEvent, url: string) => {
     const subUrl = url.split("/api/")[1];
-    console.log(subUrl);
     navigate(`/${subUrl}`);
     e.stopPropagation();
   };
@@ -32,11 +31,7 @@ const TableRows = <T extends { url: string }, K extends keyof T>({
             <td
               className="py-3 px-5"
               key={`cell-${index2}`}
-              onClick={(e) =>
-                column.isLink
-                  ? handleRowClick(e, row[column.key] as string)
-                  : null
-              }
+              onClick={(e) => handleRowClick(e, row[column.key] as string)}
             >
               {row[column.key] as ReactNode}
             </td>
