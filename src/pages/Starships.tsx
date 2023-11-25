@@ -30,8 +30,13 @@ export default function Starships() {
     { key: "starship_class", header: "Starship Class" },
   ];
 
-  if (loading) return <h1>loading</h1>;
-  if (error) return <h1>error</h1>;
+  if (loading) {
+    return <h1 className="text-center text-3xl font-bold">Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1 className="text-center text-3xl font-bold">error</h1>;
+  }
 
   return (
     <div className="flex flex-col">
