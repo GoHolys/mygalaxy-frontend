@@ -13,7 +13,7 @@ const TableHeader = <T, K extends keyof T>({
     return (
       <th
         key={`headCell-${index}`}
-        className="py-3 px-5"
+        className="py-3 px-5 cursor-pointer"
         onClick={() => handleHeaderClick(column.key)}
       >
         {column.header}
