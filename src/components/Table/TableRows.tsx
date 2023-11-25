@@ -31,7 +31,11 @@ const TableRows = <T extends { url: string }, K extends keyof T>({
             <td
               className="py-3 px-5"
               key={`cell-${index2}`}
-              onClick={(e) => handleRowClick(e, row[column.key] as string)}
+              onClick={(e) =>
+                column.isLink
+                  ? handleRowClick(e, row[column.key] as string)
+                  : null
+              }
             >
               {row[column.key] as ReactNode}
             </td>
